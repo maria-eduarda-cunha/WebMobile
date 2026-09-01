@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  height: 120vh;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  
+  border: 1px solid #666;
+}
+
+#wizard-progress-bar {
+  border: 1px solid #666;
+}
+
+#wizard-progress-bar .active {
+  color: red;
+  text-decoration: underline;
+}
+
+#wizard-form {
+  border: 1px solid #666;
+  width: 960px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#wizard-form figure {
+  background-color: #eee;
+  width: 768px;
+  height: 480px;
+}
+
+#wizard-form-options {
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+}
+
+#wizard-form-options button {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
