@@ -1,0 +1,63 @@
+:root{
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20vh;
+    background-color: lightgrey;
+}
+
+.secao-modulos{
+    display: grid;
+    grid-template-columns: repeat(3, 30vw);
+    justify-content: center;
+    align-content: center;
+    gap: 0;
+    background-color: white;
+    height: 80vh;
+}
+
+.cartao-modulo{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px 10px;
+    width: 100px;
+}
+
+.card-modulo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartao-modulo figure{
+    display: flex;
+    border: 1px solid white;
+    border-radius: 14px;
+    background-color: lightgrey;
+    padding: 50px;
+    height: 100%;
+    margin: 0;
+}
+
+.cartao-modulo h3{
+    margin-top: 5px;
+}
