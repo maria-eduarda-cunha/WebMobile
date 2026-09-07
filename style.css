@@ -50,6 +50,11 @@ body {
     color: var(--cor-texto-claro);
     font-size: 32px;
     cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.menu .icone:hover {
+    color: var(--cor-primaria-clara);
 }
 
 /* Página Home */
@@ -61,7 +66,7 @@ body {
     align-content: center;
     gap: 0;
     background-color: var(--cor-fundo);
-    height: 80vh;
+    height: 85vh;
 }
 
 .cartao-modulo{
@@ -95,13 +100,23 @@ body {
     border: none;
     border-radius: 14px;
     background-color: var(--cor-fundo-input);
+    transition: background-color 0.2s ease;
     margin: 0;
     box-sizing: border-box;
+}
+
+.cartao-modulo figure:hover{
+    background-color: var(--cor-primaria-hover);
 }
 
 .cartao-modulo .icone{
     font-size: 40px;
     color: var(--cor-primaria);
+    transition: color 0.2s ease;
+}
+
+.cartao-modulo:hover .icone {
+    color: var(--cor-texto-claro);
 }
 
 .cartao-modulo .alfabeto{
