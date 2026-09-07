@@ -64,9 +64,27 @@ body {
     font-size: 40px;
 }
 
+/* Main - padrão para todas as páginas */
+
+main {
+    background-color: var(--cor-fundo);
+    height: 85vh;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+/* Barra de Progresso - padrão para as páginas de quiz */
+
+progress {
+    width: 80%;
+    height: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
 /* Página Home */
 
-.secao-modulos{
+.secao-modulos {
     display: grid;
     grid-template-columns: repeat(3, 30vw);
     justify-content: center;
@@ -204,13 +222,6 @@ body {
 
 /* Página Aula */
 
-main {
-    background-color: var(--cor-fundo);
-    height: 85vh;
-    padding-top: 30px;
-    box-sizing: border-box;
-}
-
 .titulo-aula {
     text-align: left;
     margin-left: 60px;
@@ -254,3 +265,88 @@ main {
     cursor: pointer;
     transition: color 0.2s ease;
 }
+
+/* Página quiz selecione o correto 1 */
+
+.secao-quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 80px;
+
+    background-color: var(--cor-fundo);
+    height: auto;
+}
+
+.secao-quiz h2 {
+    margin: 30px 0 0 0;
+}
+
+.secao-quiz .video-seta {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-left: 50px;
+}
+
+.secao-quiz .video {
+    width: 600px;
+    height: 350px;
+    margin: 0;
+
+    background-color: var(--cor-fundo-input);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.secao-quiz .video img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seta {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.secao-quiz a {
+    color: var(--cor-primaria);
+}
+
+.secao-quiz a:hover {
+    color: var(--cor-texto-claro);
+}
+
+.secao-quiz section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.secao-quiz article {
+    width: 160px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--cor-fundo-input);
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.secao-quiz article:hover {
+    background-color: var(--cor-primaria-hover);
+    color: var(--cor-texto-claro);
+    transition: color 0.2s ease;
+}
+
+.secao-quiz article p {
+    margin: 0;
+}
+
