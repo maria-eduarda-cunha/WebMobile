@@ -48,7 +48,7 @@ body {
 
 .menu .icone{
     color: var(--cor-texto-claro);
-    font-size: 32px;
+    font-size: 40px;
     cursor: pointer;
     transition: color 0.2s ease;
 }
@@ -129,4 +129,68 @@ body {
 
 .cartao-modulo h3{
     margin-top: 5px;
+}
+
+/* Página modulo */
+
+.modulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 600px;
+    background-color: var(--cor-fundo);
+    height: 85vh;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px 10px;
+    width: 100px;
+}
+
+.card figure {
+    width: 180px;
+    height: 180px;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 14px;
+    background-color: var(--cor-fundo-input);
+    transition: background-color 0.2s ease;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card .icone {
+    font-size: 40px;
+    color: var(--cor-primaria);
+    transition: color 0.2s ease;
+}
+
+.card h3 {
+    margin-top: 5px;
+}
+
+.card a {
+    text-decoration: none;
+    color: var(--cor-texto)
+}
+
+.card:hover figure {
+    background-color: var(--cor-primaria-hover);
+}
+
+.card:hover .icone {
+    color: var(--cor-texto-claro);
 }
