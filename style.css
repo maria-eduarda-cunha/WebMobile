@@ -68,7 +68,7 @@ body {
 
 main {
     background-color: var(--cor-fundo);
-    height: 85vh;
+    height: 100%;
     padding-top: 30px;
     box-sizing: border-box;
 }
@@ -267,7 +267,7 @@ progress {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    gap: 80px;
+    gap: 40px;
 
     background-color: var(--cor-fundo);
     height: auto;
@@ -280,13 +280,12 @@ progress {
 .secao-quiz .video-seta {
     display: flex;
     align-items: center;
-    gap: 50px;
     margin-left: 50px;
 }
 
 .secao-quiz .video {
-    width: 600px;
-    height: 350px;
+    width: 40vw;
+    height: 35vh;
     margin: 0;
     background-color: var(--cor-fundo-input);
     border-radius: 15px;
@@ -317,6 +316,7 @@ progress {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -382,8 +382,56 @@ progress {
 
 
 @media (max-width: 768px) {
+    /* Header */
+
+    .cabecalho {
+        padding: 0px 7px;
+        height: 10%;
+    }
+
+    .menu .coracao {
+        font-size: 20px;
+    } 
+
+    .menu .icone {
+        font-size: 20px;
+    }
+
+    .menu .logo {
+        max-width: 5%;
+        height: auto;
+        padding: 0px;
+    }
+
+    .main{
+        width: 100%;
+        height: 100%;
+        padding-top: 0px;
+        box-sizing: none;
+    }
+
+    /* Página Home */
+
     .cartao-modulo figure {
         width: 25vw;
         height: 15vh;
     }
+
+    /* Página modulo */
+
+    /* Página Aula */
+    
+    /* Página Quiz 1 */
+
+    .secao-quiz {
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .secao-quiz h2{
+        font-size: 80%;
+        gap: 0px;
+    }
+
 }
