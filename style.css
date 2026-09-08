@@ -379,3 +379,11 @@ progress {
     width: 200px;
     height: 150px;
 }
+
+
+@media (max-width: 768px) {
+    .cartao-modulo figure {
+        width: 25vw;
+        height: 15vh;
+    }
+}
