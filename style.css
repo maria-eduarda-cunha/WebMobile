@@ -32,7 +32,7 @@ body {
 
 /* Header - padrão para todas as páginas */
 
-.cabecalho{
+.cabecalho {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,12 +41,12 @@ body {
     padding: 0 40px
 }
 
-.menu{
+.menu {
     display: flex;
     gap: 30px
 }
 
-.menu .icone{
+.menu .icone {
     color: var(--cor-texto-claro);
     font-size: 40px;
     cursor: pointer;
@@ -94,7 +94,7 @@ progress {
     height: 85vh;
 }
 
-.cartao-modulo{
+.cartao-modulo {
     display: flex;
     flex-direction: column;
 
@@ -107,7 +107,7 @@ progress {
     width: 100px;
 }
 
-.card-modulo{
+.card-modulo {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,24 +117,22 @@ progress {
     width: 180px;
     height: 180px;
     padding: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: none;
-    border-radius: 14px;
+    border-radius: 15px;
     background-color: var(--cor-fundo-input);
     transition: background-color 0.2s ease;
     margin: 0;
     box-sizing: border-box;
 }
 
-.cartao-modulo figure:hover{
+.cartao-modulo figure:hover {
     background-color: var(--cor-primaria-hover);
 }
 
-.cartao-modulo .icone{
+.cartao-modulo .icone {
     font-size: 40px;
     color: var(--cor-primaria);
     transition: color 0.2s ease;
@@ -144,7 +142,7 @@ progress {
     color: var(--cor-texto-claro);
 }
 
-.cartao-modulo .alfabeto{
+.cartao-modulo .alfabeto {
     font-size: 60px;
 }
 
@@ -152,7 +150,7 @@ progress {
     font-size: 60px;
 }
 
-.cartao-modulo h3{
+.cartao-modulo h3 {
     margin-top: 5px;
 }
 
@@ -184,13 +182,11 @@ progress {
     width: 180px;
     height: 180px;
     padding: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: none;
-    border-radius: 14px;
+    border-radius: 15px;
     background-color: var(--cor-fundo-input);
     transition: background-color 0.2s ease;
     margin: 0;
@@ -228,7 +224,7 @@ progress {
     color: var(--cor-texto)
 }
 
-.container-aula{
+.container-aula {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -239,13 +235,11 @@ progress {
     width: 900px;
     height: 550px;
     margin: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: var(--cor-fundo-input);
-    border-radius: 14px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -294,9 +288,8 @@ progress {
     width: 600px;
     height: 350px;
     margin: 0;
-
     background-color: var(--cor-fundo-input);
-    border-radius: 14px;
+    border-radius: 15px;
     overflow: hidden;
 }
 
@@ -323,20 +316,23 @@ progress {
 .secao-quiz section {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
+}
+
+.secao-quiz section a {
+    position: fixed;
+    right: 60px;
+    top: 50vh;
 }
 
 .secao-quiz article {
     width: 160px;
-    height: 40px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: var(--cor-fundo-input);
-    border-radius: 10px;
-
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -346,7 +342,40 @@ progress {
     transition: color 0.2s ease;
 }
 
-.secao-quiz article p {
-    margin: 0;
+.secao-quiz .opcao-video {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
 }
 
+.secao-quiz .opcao-video .video {
+    width: 300px;
+    height: 300px;
+}
+
+.secao-quiz .questao {
+    gap: 100px;
+}
+
+.secao-quiz .container-texto,
+.container-video {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.secao-quiz .container-texto article {
+    padding: 70px 20px;
+}
+
+.secao-quiz .container-video article {
+    padding: 20px;
+}
+
+.secao-quiz .container-video .video {
+    width: 200px;
+    height: 150px;
+}
