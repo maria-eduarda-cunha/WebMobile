@@ -418,8 +418,27 @@ progress {
     }
 
     /* Página modulo */
+    
 
     /* Página Aula */
+    .container-aula .video {
+        width: 90vw;
+        height: 60vh;
+    }
+    
+    .titulo-aula {
+        text-align: center;
+        margin-top: 0;
+    }
+    
+    .container-aula {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+        gap: 0;
+    }
     
     /* Página Quiz 1 */
 
