@@ -160,7 +160,7 @@ progress {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 600px;
+    gap: 20vw;
     background-color: var(--cor-fundo);
     height: 85vh;
 }
