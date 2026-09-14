@@ -48,14 +48,18 @@ const renderRemainingAttempts = () => {
 };
 
 const initOptions = () => {
-  const quizNumber = /quiz(\d+)-/.test(window.location.pathname);
+  const pattern = /^\/quiz(\d+)-/;
+  const quizNumber = Number.parseInt(pattern.exec(window.location.pathname)[1]);
   const question = questions[quizNumber - 1];
+  const { type } = question;
 
-  $options.forEach(($option) => {
-    $option.addEventListener('click', () =>
-      onOptionClick($option, question, $btnNext),
-    );
-  });
+  if (type === 'single_choice' || type === 'image_choice') {
+    $options.forEach(($option) => {
+      $option.addEventListener('click', () =>
+        onOptionClick($option, question, $btnNext),
+      );
+    });
+  }
 };
 
 const onOptionClick = ($option, question, $btnNext) => {
@@ -65,20 +69,19 @@ const onOptionClick = ($option, question, $btnNext) => {
   if (right) {
     $option.classList.add('correct');
     $btnNext.removeAttribute('disabled');
-    $options.forEach(($option) => {
-      $option.setAttribute('disabled', 'true');
-    });
-  } else {
-    $option.classList.add('wrong', 'shake');
-    $option.addEventListener(
-      'animationend',
-      () => {
-        $option.classList.remove('shake');
-      },
-      { once: true },
-    );
-    removeHeart();
+    disableAllOptions();
+    return;
   }
+
+  $option.classList.add('wrong', 'shake');
+  $option.addEventListener(
+    'animationend',
+    () => {
+      $option.classList.remove('shake');
+    },
+    { once: true },
+  );
+  removeHeart();
 };
 
 const removeHeart = () => {
@@ -88,10 +91,14 @@ const removeHeart = () => {
   if (newRemainingAttempts === 0) gameOver();
 };
 
-const gameOver = () => {
+const disableAllOptions = () => {
   $options.forEach(($option) => {
     $option.setAttribute('disabled', 'true');
   });
+};
+
+const gameOver = () => {
+  disableAllOptions();
   setState({ remainingAttempts: 0 });
 
   alert('Game over, lil bro');
@@ -179,13 +186,6 @@ const questions = [
         image: {
           url: 'assets/imgs/1-libras04.gif',
           alt: 'Imagem 3',
-        },
-      },
-      {
-        id: 'o4',
-        image: {
-          url: 'assets/imgs/1-libras04.gif',
-          alt: 'Imagem 4',
         },
       },
     ],
