@@ -5,6 +5,10 @@ const DEFAULT_STATE = {
   remainingAttempts: 3,
 };
 
+const $btnNext = document.getElementById('btn-next');
+const $remainingAttempts = document.getElementById('remaining-attempts');
+const $options = document.querySelectorAll('.option');
+
 let state = {};
 const setState = (newState) => {
   state = {
@@ -12,21 +16,9 @@ const setState = (newState) => {
     ...newState,
   };
 
-  renderRemainingAttempts();
+  saveState();
+  render();
 };
-
-const renderRemainingAttempts = () => {
-  const $remainingAttempts = document.getElementById('remaining-attempts');
-  $remainingAttempts.textContent = '';
-
-  for (let i = 0; i < TOTAL_ATTEMPTS; i++) {
-    const heart = document.createElement('span');
-    heart.classList.add('material-symbols-outlined', 'coracao');
-    heart.setAttribute('aria-hidden', 'true');
-    heart.textContent = i < state.remainingAttempts ? 'favorite' : 'heart_broken';
-    $remainingAttempts.appendChild(heart);
-  }
-}
 
 const initState = () => {
   const stateStr = localStorage.getItem(STATE_KEY);
@@ -38,16 +30,81 @@ const saveState = () => {
   localStorage.setItem(STATE_KEY, JSON.stringify(state));
 };
 
+const render = () => {
+  renderRemainingAttempts();
+};
+
+const renderRemainingAttempts = () => {
+  $remainingAttempts.textContent = '';
+
+  for (let i = 0; i < TOTAL_ATTEMPTS; i++) {
+    const heart = document.createElement('span');
+    heart.classList.add('material-symbols-outlined', 'coracao');
+    heart.setAttribute('aria-hidden', 'true');
+    heart.textContent =
+      i < state.remainingAttempts ? 'favorite' : 'heart_broken';
+    $remainingAttempts.appendChild(heart);
+  }
+};
+
+const initOptions = () => {
+  const quizNumber = /quiz(\d+)-/.test(window.location.pathname);
+  const question = questions[quizNumber - 1];
+
+  $options.forEach(($option) => {
+    $option.addEventListener('click', () =>
+      onOptionClick($option, question, $btnNext),
+    );
+  });
+};
+
+const onOptionClick = ($option, question, $btnNext) => {
+  if ($option.classList.contains('wrong')) return;
+  const right = $option.dataset.optionId === question.answer.optionId;
+
+  if (right) {
+    $option.classList.add('correct');
+    $btnNext.removeAttribute('disabled');
+    $options.forEach(($option) => {
+      $option.setAttribute('disabled', 'true');
+    });
+  } else {
+    $option.classList.add('wrong', 'shake');
+    $option.addEventListener(
+      'animationend',
+      () => {
+        $option.classList.remove('shake');
+      },
+      { once: true },
+    );
+    removeHeart();
+  }
+};
+
+const removeHeart = () => {
+  const newRemainingAttempts = Math.max(state.remainingAttempts - 1, 0);
+  setState({ remainingAttempts: newRemainingAttempts });
+
+  if (newRemainingAttempts === 0) gameOver();
+};
+
+const gameOver = () => {
+  $options.forEach(($option) => {
+    $option.setAttribute('disabled', 'true');
+  });
+  setState({ remainingAttempts: 0 });
+
+  alert('Game over, lil bro');
+  window.location.href = '/modulo.html';
+};
+
 window.addEventListener('load', () => {
   initState();
+  initOptions();
 
   if (window.location.pathname === '/quiz1-selecione-o-correto.html') {
     setState({ remainingAttempts: 3 });
   }
-});
-
-window.addEventListener('beforeunload', () => {
-  saveState();
 });
 
 const questions = [

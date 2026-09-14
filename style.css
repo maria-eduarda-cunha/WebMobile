@@ -380,6 +380,43 @@ progress {
     height: 150px;
 }
 
+.option {
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.option.correct {
+    border-color: #58cc02;
+    background-color: #d7ffb8;
+}
+
+.option.wrong {
+    border-color: #ff4b4b;
+    background-color: #ffdfe0;
+    pointer-events: none; /* impede clicar de novo nesta opção */
+}
+
+.option.shake {
+    animation: shake 0.4s ease;
+}
+
+#btn-next[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
 
 @media (max-width: 768px) {
     /* Header */
@@ -391,7 +428,7 @@ progress {
 
     .menu .coracao {
         font-size: 20px;
-    } 
+    }
 
     .menu .icone {
         font-size: 20px;
@@ -418,19 +455,19 @@ progress {
     }
 
     /* Página modulo */
-    
+
 
     /* Página Aula */
     .container-aula .video {
         width: 90vw;
         height: 60vh;
     }
-    
+
     .titulo-aula {
         text-align: center;
         margin-top: 0;
     }
-    
+
     .container-aula {
         display: flex;
         flex-direction: column;
@@ -439,7 +476,7 @@ progress {
         overflow: auto;
         gap: 0;
     }
-    
+
     /* Página Quiz 1 */
 
     .secao-quiz {
