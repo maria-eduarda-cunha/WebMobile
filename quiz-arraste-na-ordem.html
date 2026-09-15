@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <header class="cabecalho">
         <a href="home.html" class="logo" aria-label="Página inicial do Duo Libras">
             <img src="img/logo.png" alt="Logo do Duo Libras" class="logo">
@@ -49,27 +50,37 @@
 
             </section>
 
+        <section id="area-drop">
+            <p>Arraste as opções para cá</p>
+            <p id="texto-drop"></p>
             <p>...............................................................................</p>
+        </section>
 
-            <section>
-                <article>
-                    <p>Seleção1</p>
+            <section id="opcoes">
+                <article draggable="true" data-ordem="3">
+                    <p>Opção3</p>
                 </article>
-                <article>
-                    <p>Seleção2</p>
+
+                <article draggable="true" data-ordem="2">
+                    <p>Opção2</p>
                 </article>
-                <article>
-                    <p>Seleção3</p>
+
+                <article draggable="true" data-ordem="4">
+                    <p>Opção4</p>
                 </article>
-                <article>
-                    <p>Seleção4</p>
+
+                <article draggable="true" data-ordem="1">
+                    <p>Opção1</p>
                 </article>
             </section>
+
+            <p id="mensagem"></p>
 
         </section>
     </main>
 
     <script src="js/quiz-elementos.js"></script>
+    <script src="js/quiz-arraste-na-ordem.js"></script>
 
 </body>
 
