@@ -41,7 +41,7 @@
                         alt="gif realizando o sinal de Libras na Lingua de Sinais Brasileira">
                 </figure>
 
-                <a href="quiz3-selecione-correto.html" class="seta">
+                <a href="quiz3-selecione-correto.html" id="btn-next" class="seta" disabled>
                     <span class="material-symbols-outlined">
                         arrow_forward_ios
                     </span>
@@ -49,22 +49,24 @@
 
             </section>
 
-            <p>...............................................................................</p>
+            <section id="answer"></section>
 
-            <section>
-                <article>
+            <section id="options">
+                <article class="option dnd" data-item-id="i1">
                     <p>Seleção1</p>
                 </article>
-                <article>
+                <article class="option dnd" data-item-id="i2">
                     <p>Seleção2</p>
                 </article>
-                <article>
+                <article class="option dnd" data-item-id="i3">
                     <p>Seleção3</p>
                 </article>
-                <article>
+                <article class="option dnd" data-item-id="i4">
                     <p>Seleção4</p>
                 </article>
             </section>
+
+            <button id="check-order">Verificar</button>
 
         </section>
     </main>

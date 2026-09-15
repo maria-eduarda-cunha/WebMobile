@@ -384,9 +384,15 @@ progress {
     transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
+.option[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
 .option.correct {
     border-color: #58cc02;
     background-color: #d7ffb8;
+    opacity: unset !important;
 }
 
 .option.wrong {
@@ -397,6 +403,56 @@ progress {
 
 .option.shake {
     animation: shake 0.4s ease;
+}
+
+.item-match, .target-match {
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.item-match.selected, .target-match.selected {
+    background-color: #1cb0f6;
+}
+
+.item-match.correct, .target-match.correct {
+    background-color: #58cc02;
+}
+
+.item-match.shake, .target-match.shake {
+    animation: shake 0.4s ease;
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    touch-action: none; /* impede o navegador de rolar a tela enquanto arrasta no celular */
+}
+
+.dnd {
+    cursor: grab;
+    user-select: none;
+}
+
+.dnd.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.dnd.locked {
+    pointer-events: none;
+    border-color: #58cc02;
+    background-color: #d7ffb8;
+}
+
+#answer {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+#answer:empty {
+    min-width: 48px; /* garante área de soltar mesmo vazia */
 }
 
 #btn-next[disabled] {
