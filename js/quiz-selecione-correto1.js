@@ -1,8 +1,9 @@
-
 // Seleciona os botões do HTML
 const opcoes = document.querySelectorAll(".secao-quiz article");
 
 const respostaCorreta = "Seleção1";
+
+atualizarProgresso(0);
 
 // Passa por todo os botões
 opcoes.forEach((opcao) => {
@@ -16,14 +17,14 @@ opcoes.forEach((opcao) => {
         if (resposta === respostaCorreta) {
             opcao.classList.add("correta");
             liberarSeta(); // pode clicar na seta
-
+            atualizarProgresso(100);
         
         // Se resposta errada, classe de article = "errada"
         } else {
             opcao.classList.add("errada");
             perderCoracao(); // perde vida
         }
-
+        
     });
 
 });

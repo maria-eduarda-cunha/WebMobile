@@ -285,14 +285,17 @@ progress {
 }
 
 .secao-quiz .video-seta {
+    width: 30vw;
+    height: 35vh;
     display: flex;
     align-items: center;
-    margin-left: 50px;
+    justify-content: center;
+
 }
 
 .secao-quiz .video {
-    width: 40vw;
-    height: 35vh;
+    width: 100%;
+    height: 100%;
     margin: 0;
     background-color: var(--cor-fundo-input);
     border-radius: 15px;
@@ -302,7 +305,6 @@ progress {
 .secao-quiz .video img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
 }
 
 .seta {
@@ -382,32 +384,43 @@ progress {
 .container-video {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10vh;
     flex-direction: column;
 }
 
 .secao-quiz .container-texto article {
-    padding: 70px 20px;
+    padding: 1vh 1vw;
 }
 
 .secao-quiz .container-video article {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 10vw;
+
 }
 
 .secao-quiz .container-video .video {
-    width: 200px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+.secao-quiz .container-video p {
+    padding: 0;
 }
 
 .secao-quiz article.correta {
     background-color: #4CAF50;
     color: var(--cor-texto-claro);
+    pointer-events: none;
 }
 
 .secao-quiz article.errada {
     background-color: #F44336;
     color: var(--cor-texto-claro);
     animation: shake 0.4s;
+    pointer-events: none;
 }
 
 /* Animação de chacoalhar */
@@ -494,4 +507,36 @@ progress {
         gap: 0px;
     }
 
+    .secao-quiz .video-seta {
+        width: 65vw;
+        height: 35vh;
+        margin-bottom: 20px;
+    }
+
+    /* Página Quiz Arraste Aqui */
+
+    .secao-quiz{
+        gap: 0;
+    }
+    .secao-quiz .container-texto article {
+        width: 120%;
+        height: 100%;
+    }
+
+    .secao-quiz .container-video article {
+        height: 20vh;
+        width: 25vw;
+    }
+
+    .secao-quiz h2{
+        text-align: center;
+        font-size: large;
+        padding: 30px;
+        margin: 0;
+    }
+
+    .secao-quiz .seta{
+        display: flex;
+        flex-direction: column;
+    }
 }

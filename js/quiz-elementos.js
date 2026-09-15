@@ -37,3 +37,13 @@ function liberarSeta() {
     // Adiciona a animação
     seta.classList.add("liberada");
 }
+
+// --------------- BARRA DE PROGRESSO ---------------
+
+// Seleciona a barra de progresso.
+const progresso = document.querySelector("progress");
+
+// Função que incrementa valor da barra de progresso.
+function atualizarProgresso(valor){
+    progresso.value = valor;
+}
