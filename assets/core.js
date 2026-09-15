@@ -46,18 +46,18 @@ const $options = document.querySelectorAll('.option');
 const initOptions = (question) => {
   $options.forEach(($option) => {
     $option.addEventListener('click', () =>
-      onOptionClick($option, question, $btnNext),
+      onOptionClick($option, question),
     );
   });
 };
 
-const onOptionClick = ($option, question, $btnNext) => {
+const onOptionClick = ($option, question) => {
   if ($option.classList.contains('wrong')) return;
   const right = $option.dataset.optionId === question.answer.optionId;
 
   if (right) {
     $option.classList.add('correct');
-    $btnNext.removeAttribute('disabled');
+    enableNextButton();
     disableAllOptions();
     return;
   }
@@ -129,7 +129,7 @@ const checkOrder = (event, question) => {
       $item.classList.add('locked');
     });
     event.target.setAttribute('disabled', 'true');
-    $btnNext.removeAttribute('disabled');
+    enableNextButton();
   } else {
     $answerContainer.querySelectorAll('.option:not(.locked)').forEach(($item) => {
       animateShake($item);
@@ -205,7 +205,7 @@ const onMatchElementClick = ($el, question) => {
 
   const allResolved =
     document.querySelectorAll('.item-match:not(.correct)').length === 0;
-  if (allResolved) $btnNext.removeAttribute('disabled');
+  if (allResolved) enableNextButton();
 };
 
 //#endregion
@@ -249,6 +249,15 @@ const animateShake = ($el) => {
     },
     { once: true },
   );
+};
+
+const enableNextButton = () => {
+  if (!$btnNext) {
+    alert('Parabéns! Você concluiu o quiz!');
+    window.location.href = '/home.html';
+    return;
+  }
+  $btnNext.removeAttribute('disabled');
 };
 
 // agradecimentos ao chatgpt pelo flip animation <3
