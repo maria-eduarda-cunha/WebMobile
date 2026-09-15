@@ -83,14 +83,8 @@ const disableAllOptions = () => {
 
 //#region Order Question
 
-const DRAG_THRESHOLD = 6; // px de tolerância antes de considerar arrasto
-
 const $optionsContainer = document.getElementById('options');
 const $answerContainer = document.getElementById('answer');
-
-let $dragged = null;
-let startPoint = null;
-let hasDragged = false;
 
 const initOrder = (question) => {
   const $checkButton = document.getElementById('btn-check-order');
