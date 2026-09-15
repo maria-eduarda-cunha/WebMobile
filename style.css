@@ -314,12 +314,14 @@ progress {
 }
 
 /* Seta bloqueada */
+
 .seta.bloqueada {
     opacity: 0.3;
     pointer-events: none;
 }
 
 /* Seta liberada */
+
 .seta.liberada {
     opacity: 1;
     animation: shake 0.5s;
@@ -369,6 +371,17 @@ progress {
     width: 100%;
     height: 100%;
     padding: 30px;
+}
+
+.secao-quiz .opcao-video.correta {
+    background-color: #4CAF50;
+    color: var(--cor-texto-claro);
+}
+
+.secao-quiz .opcao-video.errada {
+    background-color: #F44336;
+    color: var(--cor-texto-claro);
+    animation: shake 0.4s;
 }
 
 .secao-quiz .opcao-video .video {
