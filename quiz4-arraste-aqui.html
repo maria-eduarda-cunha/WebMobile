@@ -18,7 +18,7 @@
         </a>
 
         <nav class="menu" aria-label="Menu">
-            <section>
+            <section id="remaining-attempts">
                 <span class="material-symbols-outlined coracao " aria-hidden="true">favorite</span>
                 <span class="material-symbols-outlined coracao" aria-hidden="true">favorite</span>
                 <span class="material-symbols-outlined coracao" aria-hidden="true">favorite</span>
@@ -38,42 +38,42 @@
             <section class="questao">
 
                 <section class="container-texto">
-                    <article>
+                    <article class="item-match" data-item-id="i1">
                         <p>Seleção1</p>
                     </article>
-                    <article>
+                    <article class="item-match" data-item-id="i2">
                         <p>Seleção2</p>
                     </article>
-                    <article>
+                    <article class="item-match" data-item-id="i3">
                         <p>Seleção3</p>
                     </article>
                 </section>
 
                 <section class="container-video">
-                    <article>
+                    <article class="target-match" data-target-id="t1">
                         <figure class="video">
-                            <img src="https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+                            <img src="assets/imgs/1-libras04.gif"
                                 alt="gif realizando o sinal de Libras na Lingua de Sinais Brasileira">
                         </figure>
                     </article>
 
-                    <article>
+                    <article class="target-match" data-target-id="t2">
                         <figure class="video">
-                            <img src="https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+                            <img src="assets/imgs/1-libras04.gif"
                                 alt="gif realizando o sinal de Libras na Lingua de Sinais Brasileira">
                         </figure>
                     </article>
 
-                    <article>
+                    <article class="target-match" data-target-id="t3">
                         <figure class="video">
-                            <img src="https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+                            <img src="assets/imgs/1-libras04.gif"
                                 alt="gif realizando o sinal de Libras na Lingua de Sinais Brasileira">
                         </figure>
                     </article>
 
                 </section>
 
-                <a href="home.html" class="seta">
+                <a href="home.html" class="seta" id="btn-next" disabled>
                     <span class="material-symbols-outlined">
                         arrow_forward_ios
                     </span>
@@ -85,8 +85,7 @@
 
     </main>
 
-    <script src="js/quiz-elementos.js"></script>
-
+    <script src="assets/core.js"></script>
 </body>
 
 </html>
