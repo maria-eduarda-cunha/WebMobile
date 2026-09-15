@@ -93,79 +93,16 @@ let startPoint = null;
 let hasDragged = false;
 
 const initOrder = (question) => {
-  const $checkButton = document.getElementById('check-order');
-  document.querySelectorAll('.dnd').forEach(($item) => {
-    $item.addEventListener('pointerdown', (event) => startDrag(event, $item));
+  const $checkButton = document.getElementById('btn-check-order');
+  $options.forEach(($item) => {
+    $item.addEventListener('click', () => onOrderItemClick($item));
   });
   $checkButton.addEventListener('click', (event) => checkOrder(event, question));
 };
 
-const startDrag = (event, $item) => {
+const onOrderItemClick = ($item) => {
   if ($item.classList.contains('locked')) return;
 
-  $dragged = $item;
-  startPoint = { x: event.clientX, y: event.clientY };
-  hasDragged = false;
-
-  $item.classList.add('dragging');
-  $item.setPointerCapture(event.pointerId);
-
-  const onMove = (e) => onDragMove(e);
-  const onUp = () => onDragEnd(onMove, onUp);
-
-  document.addEventListener('pointermove', onMove);
-  document.addEventListener('pointerup', onUp, { once: true });
-};
-
-const findTargetContainer = (x, y) => {
-  const containers = [$optionsContainer, $answerContainer];
-  const $direct = containers.find(($container) => {
-    const rect = $container.getBoundingClientRect();
-    return (
-      x >= rect.left &&
-      x <= rect.right &&
-      y >= rect.top &&
-      y <= rect.bottom
-    );
-  });
-
-  if ($direct) return $direct;
-
-  // se o elemento não caiu em nenhum container, tenta achar o mais próximo
-  return containers.reduce((closest, $c) => {
-    const rect = $c.getBoundingClientRect();
-    const distance = Math.min(Math.abs(y - rect.top), Math.abs(y - rect.bottom));
-    if (!closest) return $c;
-    const closestRect = closest.getBoundingClientRect();
-    const closestDistance = Math.min(Math.abs(y - closestRect.top), Math.abs(y - closestRect.bottom));
-    return distance < closestDistance ? $c : closest;
-  }, null);
-};
-
-const onDragMove = (event) => {
-  const { clientX: x, clientY: y } = event;
-
-  // `Math.hypot` é a fórmula de Pitagoras pra achar a distância entre os dois pontos
-  const distance = Math.hypot(x - startPoint.x, y - startPoint.y);
-  if (distance > DRAG_THRESHOLD) hasDragged = true;
-  if (!hasDragged) return;
-
-  const $targetContainer = find
-};
-
-const onDragEnd = (onMove, onUp) => {
-  document.removeEventListener('pointermove', onMove);
-  document.removeEventListener('pointerup', onUp);
-  $dragged.classList.remove('dragging');
-
-  if (!hasDragged) {
-    moveByClick($dragged);
-  }
-
-  $dragged = null;
-};
-
-const moveByClick = ($item) => {
   const isInLine = $item.parentElement === $answerContainer;
 
   animateWithFlip(() => {
@@ -178,7 +115,7 @@ const moveByClick = ($item) => {
 };
 
 const checkOrder = (event, question) => {
-  const currentOrder = [...$answerContainer.querySelectorAll('.dnd')].map(($item) => $item.dataset.itemId);
+  const currentOrder = [...$answerContainer.querySelectorAll('.option')].map(($item) => $item.dataset.itemId);
 
   if (currentOrder.length !== question.answer.order.length) {
     animateShake($answerContainer);
@@ -188,13 +125,13 @@ const checkOrder = (event, question) => {
   const isCorrect = currentOrder.every((itemId, index) => itemId === question.answer.order[index]);
 
   if (isCorrect) {
-    $answerContainer.querySelectorAll('.dnd').forEach(($item) => {
+    $answerContainer.querySelectorAll('.option').forEach(($item) => {
       $item.classList.add('locked');
     });
     event.target.setAttribute('disabled', 'true');
     $btnNext.removeAttribute('disabled');
   } else {
-    $answerContainer.querySelectorAll('.dnd').forEach(($item) => {
+    $answerContainer.querySelectorAll('.option:not(.locked)').forEach(($item) => {
       animateShake($item);
     });
     loseHeart();
@@ -316,7 +253,7 @@ const animateShake = ($el) => {
 
 // agradecimentos ao chatgpt pelo flip animation <3
 const animateWithFlip = (changeFn) => {
-  const $allItems = document.querySelectorAll('.dnd');
+  const $allItems = document.querySelectorAll('.option');
   const positionsBefore = new Map();
 
   $allItems.forEach(($item) => {

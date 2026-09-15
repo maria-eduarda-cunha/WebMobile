@@ -448,17 +448,7 @@ progress {
     touch-action: none; /* impede o navegador de rolar a tela enquanto arrasta no celular */
 }
 
-.dnd {
-    cursor: grab;
-    user-select: none;
-}
-
-.dnd.dragging {
-    opacity: 0.5;
-    cursor: grabbing;
-}
-
-.dnd.locked {
+.option.locked {
     pointer-events: none;
     border-color: #58cc02;
     background-color: #d7ffb8;
