@@ -59,9 +59,16 @@ body {
 
 /* Header que possui coração */
 
+/* Coração cheio */
 .menu .coracao {
     color: var(--cor-texto-claro);
     font-size: 40px;
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Coração vazio*/
+.menu .coracao.vazio {
+    color: var(--cor-primaria);
 }
 
 /* Main - padrão para todas as páginas */
@@ -304,6 +311,18 @@ progress {
     font-size: 40px;
 }
 
+/* Seta bloqueada */
+.seta.bloqueada {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Seta liberada */
+.seta.liberada {
+    opacity: 1;
+    animation: shake 0.5s;
+}
+
 .secao-quiz a {
     color: var(--cor-primaria);
 }
@@ -380,6 +399,28 @@ progress {
     height: 150px;
 }
 
+.secao-quiz article.correta {
+    background-color: #4CAF50;
+    color: var(--cor-texto-claro);
+}
+
+.secao-quiz article.errada {
+    background-color: #F44336;
+    color: var(--cor-texto-claro);
+    animation: shake 0.4s;
+}
+
+/* Animação de chacoalhar */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* Tela no Celular */
 
 @media (max-width: 768px) {
     /* Header */
