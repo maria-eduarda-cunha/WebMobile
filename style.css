@@ -307,6 +307,13 @@ progress {
     height: 100%;
 }
 
+/* Página arraste na ordem */
+#area-drop{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
 .seta {
     color: var(--cor-primaria);
     text-decoration: none;
@@ -521,13 +528,6 @@ progress {
         width: 65vw;
         height: 35vh;
         margin-bottom: 20px;
-    }
-
-    /* Página arraste na ordem */
-    #area-drop {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
     }
 
     /* Página Quiz Arraste Aqui */
