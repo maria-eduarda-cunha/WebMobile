@@ -410,6 +410,90 @@ progress {
     padding: 0;
 }
 
+.option {
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.option[disabled] {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.option.correct {
+    border-color: #58cc02;
+    background-color: #d7ffb8;
+    opacity: unset !important;
+}
+
+.option.wrong {
+    border-color: #ff4b4b;
+    background-color: #ffdfe0;
+    pointer-events: none; /* impede clicar de novo nesta opção */
+}
+
+.option.shake {
+    animation: shake 0.4s ease;
+}
+
+.item-match, .target-match {
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.item-match.selected, .target-match.selected {
+    background-color: #1cb0f6;
+}
+
+.item-match.correct, .target-match.correct {
+    background-color: #58cc02;
+}
+
+.item-match.shake, .target-match.shake {
+    animation: shake 0.4s ease;
+}
+
+#options {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    touch-action: none; /* impede o navegador de rolar a tela enquanto arrasta no celular */
+}
+
+.option.locked {
+    pointer-events: none;
+    border-color: #58cc02;
+    background-color: #d7ffb8;
+}
+
+#answer {
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+#answer:empty {
+    min-width: 48px; /* garante área de soltar mesmo vazia */
+}
+
+#btn-next[disabled] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
 .secao-quiz article.correta {
     background-color: #4CAF50;
     color: var(--cor-texto-claro);
@@ -432,9 +516,7 @@ progress {
   100% { transform: translateX(0); }
 }
 
-
 /* Tela no Celular */
-
 @media (max-width: 768px) {
     /* Header */
 
@@ -445,7 +527,7 @@ progress {
 
     .menu .coracao {
         font-size: 20px;
-    } 
+    }
 
     .menu .icone {
         font-size: 20px;
@@ -472,19 +554,19 @@ progress {
     }
 
     /* Página modulo */
-    
+
 
     /* Página Aula */
     .container-aula .video {
         width: 90vw;
         height: 60vh;
     }
-    
+
     .titulo-aula {
         text-align: center;
         margin-top: 0;
     }
-    
+
     .container-aula {
         display: flex;
         flex-direction: column;
@@ -493,7 +575,7 @@ progress {
         overflow: auto;
         gap: 0;
     }
-    
+
     /* Página Quiz 1 */
 
     .secao-quiz {
