@@ -386,7 +386,8 @@ progress {
 
 .secao-quiz .opcao-video .video {
     width: 300px;
-    height: 300px;
+    height: 160px;
+    object-fit: cover;
 }
 
 .secao-quiz .questao {
@@ -406,11 +407,7 @@ progress {
 }
 
 .secao-quiz .container-video article {
-    display: flex;
-    flex-direction: column;
-    height: 20vh;
-    width: 10vw;
-
+    padding: 20px;
 }
 
 .secao-quiz .container-video .video {
@@ -524,6 +521,13 @@ progress {
         width: 65vw;
         height: 35vh;
         margin-bottom: 20px;
+    }
+
+    /* Página arraste na ordem */
+    #area-drop {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
     }
 
     /* Página Quiz Arraste Aqui */
