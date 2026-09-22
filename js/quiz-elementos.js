@@ -1,25 +1,44 @@
 // --------------- CORAÇÕES ---------------
 
+
+const containerCoracoes = document.getElementById("container-coracoes");
+const vidas = Number(localStorage.getItem("vidas")) || 0;
+
+for (let i = 0; i < vidas; i++) {
+    const coracao = document.createElement("span");
+
+    coracao.classList.add("material-symbols-outlined", "coracao");
+    coracao.setAttribute("aria-hidden", "true");
+    coracao.textContent = "favorite";
+
+    containerCoracoes.appendChild(coracao);
+}
+
+
+
 // Seleciona todos os corações
 const coracoes = document.querySelectorAll(".coracao");
-
-// Quantidade de corações do usuário
-let vidas = coracoes.length;
+// localStorage.setItem("vidas", coracoes.length);
 
 // Função que tira um coração
 function perderCoracao() {
+    console.log(Number(localStorage.getItem("vidas")))
 
     // Verifica se ainda tem corações
-    if (vidas > 0) {
+    if (Number(localStorage.getItem("vidas")) > 1) {
 
         // Diminui uma vida
-        vidas--;
+        localStorage.setItem("vidas", Number(localStorage.getItem("vidas")) - 1);
 
         // Pega o coração que será alterado
-        const coracao = coracoes[vidas];
+        const coracao = coracoes[Number(localStorage.getItem("vidas"))];
 
         // Adiciona a classe vazio
         coracao.classList.add("vazio");
+    }
+    else {
+        console.log('entrou');
+        window.location.href = "home.html"
     }
 }
 
@@ -44,6 +63,6 @@ function liberarSeta() {
 const progresso = document.querySelector("progress");
 
 // Função que incrementa valor da barra de progresso.
-function atualizarProgresso(valor){
+function atualizarProgresso(valor) {
     progresso.value = valor;
 }
