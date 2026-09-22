@@ -1,0 +1,37 @@
+{
+    "titulo": "Alfabeto",
+    "quiz":{
+        "quiz-selecione-correto1":{
+            "gif": "assets/a.gif",
+            "a":"T",
+            "o":"F",
+            "r":"F",
+            "m":"F"
+        },
+
+        "quiz-arraste-na-ordem":{
+            "gif": "assets/amor.gif",
+            "m":"2",
+            "o":"3",
+            "a":"1",
+            "r":"4"
+        },
+
+        "quiz-selecione-correto2":{
+            "titulo":"Letra R",
+            "assets/m.gif":"F",
+            "assets/r.gif":"F",
+            "assets/o.gif":"T"
+        },
+
+        "quiz-arraste-aqui":{
+            "gif1": "assets/o.gif",
+            "gif2":"assets/a.gif",
+            "gif3":"assets/m.gif",
+            "a":"gif2",
+            "m":"gif3",
+            "o":"gif1"
+        }
+
+    }
+}
