@@ -1,0 +1,60 @@
+{
+  "titulo": "Alfabeto",
+  "imagem": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif",
+  "quizzes": {
+    "selecione-correto1": {
+      "imagem": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif",
+      "opcoes": ["Seleção1", "Seleção2", "Seleção3", "Seleção4"],
+      "resposta": "Seleção1"
+    },
+    "arraste-na-ordem": {
+      "opcoes": [
+        { "ordem": 3, "rotulo": "Opção3" },
+        { "ordem": 2, "rotulo": "Opção2" },
+        { "ordem": 4, "rotulo": "Opção4" },
+        { "ordem": 1, "rotulo": "Opção1" }
+      ]
+    },
+    "selecione-correto2": {
+      "opcoes": [
+        {
+          "rotulo": "gif 1",
+          "imagem": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        },
+        {
+          "rotulo": "gif 2",
+          "imagem": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        },
+        {
+          "rotulo": "gif 3",
+          "imagem": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        }
+      ],
+      "resposta": "gif 3"
+    },
+    "arraste-aqui": {
+      "textos": [
+        { "id": "Seleção1", "rotulo": "Seleção1" },
+        { "id": "Seleção2", "rotulo": "Seleção2" },
+        { "id": "Seleção3", "rotulo": "Seleção3" }
+      ],
+      "imagens": [
+        {
+          "id": "video-1",
+          "rotulo": "1",
+          "url": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        },
+        {
+          "id": "video-2",
+          "rotulo": "2",
+          "url": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        },
+        {
+          "id": "video-3",
+          "rotulo": "3",
+          "url": "https://s2.static.brasilescola.uol.com.br/be/2024/04/1-libras04.gif"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[
+  { "id": "alfabeto", "titulo": "Alfabeto", "icone": "abc" },
+  { "id": "numeros", "titulo": "Números", "icone": "123" },
+  { "id": "saudacoes", "titulo": "Saudações", "icone": "hand_gesture" },
+  { "id": "profissoes", "titulo": "Profissões", "icone": "business_center" },
+  { "id": "perigo", "titulo": "Situações de Perigo", "icone": "warning" },
+  { "id": "sintomas", "titulo": "Sintomas", "icone": "ecg_heart" }
+]
