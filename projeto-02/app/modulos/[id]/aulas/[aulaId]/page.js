@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Cabecalho from "../../../../../components/Cabecalho";
-import conteudo from "../../../../../data/conteudos/alfabeto.json";
+import Cabecalho from "@/components/Cabecalho";
+import conteudo from "@/data/conteudos/alfabeto.json";
 
 export function generateStaticParams() {
   return [{ id: "alfabeto", aulaId: "introducao" }];

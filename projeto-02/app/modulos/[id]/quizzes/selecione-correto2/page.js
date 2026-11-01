@@ -1,7 +1,7 @@
-import BarraProgresso from "../../../../../components/BarraProgresso";
-import Cabecalho from "../../../../../components/Cabecalho";
-import QuizSelecao from "../../../../../components/QuizSelecao";
-import conteudo from "../../../../../data/conteudos/alfabeto.json";
+import BarraProgresso from "@/components/BarraProgresso";
+import Cabecalho from "@/components/Cabecalho";
+import QuizSelecao from "@/components/QuizSelecao";
+import conteudo from "@/data/conteudos/alfabeto.json";
 
 export default function PaginaQuizMidia() {
   const quiz = conteudo.quizzes["selecione-correto2"];

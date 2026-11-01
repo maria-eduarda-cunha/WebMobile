@@ -1,6 +1,6 @@
-import Cabecalho from "../components/Cabecalho";
-import CartaoModulo from "../components/CartaoModulo";
-import modulos from "../data/modulos.json";
+import Cabecalho from "@/components/Cabecalho";
+import CartaoModulo from "@/components/CartaoModulo";
+import modulos from "@/data/modulos.json";
 
 export default function PaginaInicial() {
   return (

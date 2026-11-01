@@ -1,7 +1,7 @@
-import BarraProgresso from "../../../../../components/BarraProgresso";
-import Cabecalho from "../../../../../components/Cabecalho";
-import QuizOrdem from "../../../../../components/QuizOrdem";
-import conteudo from "../../../../../data/conteudos/alfabeto.json";
+import BarraProgresso from "@/components/BarraProgresso";
+import Cabecalho from "@/components/Cabecalho";
+import QuizOrdem from "@/components/QuizOrdem";
+import conteudo from "@/data/conteudos/alfabeto.json";
 
 export default function PaginaQuizOrdem() {
   const quiz = conteudo.quizzes["arraste-na-ordem"];

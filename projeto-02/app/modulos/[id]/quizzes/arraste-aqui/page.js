@@ -1,7 +1,7 @@
-import BarraProgresso from "../../../../../components/BarraProgresso";
-import Cabecalho from "../../../../../components/Cabecalho";
-import QuizAssociacao from "../../../../../components/QuizAssociacao";
-import conteudo from "../../../../../data/conteudos/alfabeto.json";
+import BarraProgresso from "@/components/BarraProgresso";
+import Cabecalho from "@/components/Cabecalho";
+import QuizAssociacao from "@/components/QuizAssociacao";
+import conteudo from "@/data/conteudos/alfabeto.json";
 
 export default function PaginaQuizAssociacao() {
   const quiz = conteudo.quizzes["arraste-aqui"];

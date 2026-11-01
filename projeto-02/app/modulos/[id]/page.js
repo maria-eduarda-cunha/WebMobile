@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Cabecalho from "../../../components/Cabecalho";
-import modulos from "../../../data/modulos.json";
+import Cabecalho from "@/components/Cabecalho";
+import modulos from "@/data/modulos.json";
 
 export function generateStaticParams() {
   return modulos.map(({ id }) => ({ id }));
