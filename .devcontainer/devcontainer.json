@@ -15,7 +15,7 @@
       ]
     }
   },
-  "postCreateCommand": "cd projeto-02 && pnpm install",
+  "postCreateCommand": "pnpm i -g @biomejs/biome && cd projeto-02 && pnpm i",
   "forwardPorts": [
     3000
   ],
