@@ -7,6 +7,14 @@
       "pnpmVersion": "latest"
     }
   },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "biomejs.biome",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  },
   "postCreateCommand": "cd projeto-02 && pnpm install",
   "forwardPorts": [
     3000
