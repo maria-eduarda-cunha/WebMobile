@@ -36,9 +36,10 @@ disponibilizada pela Vercel.
 
 ![Arquitetura do projeto](image.png)
 
-A API estática fornece os dados, mas não executa regras de negócio nem altera o
-conteúdo. O backend é responsável por consultar esses dados e disponibilizá-los
-ao Next.js.
+Os dados de módulos e quizzes permanecem em arquivos JSON locais. Route Handlers
+do Next.js disponibilizam esses arquivos como endpoints JSON, e as páginas
+consomem os endpoints com `fetch` no navegador. Não há um backend separado nem
+uma API externa configurada neste projeto.
 
 ### Fluxo de componentes e navegação
 
@@ -65,10 +66,14 @@ flowchart TD
     Aula --> PaginaAula
     QuizInicial --> PaginasQuiz
 
-    PaginaAula --> ConteudoAula["data/conteudos/alfabeto.json<br/>imagem e conteúdo da aula"]
-    PaginasQuiz --> ConteudoQuiz["data/conteudos/alfabeto.json<br/>questões e respostas"]
-    PaginaInicial --> Modulos["data/modulos.json<br/>lista de módulos"]
-    PaginaModulo --> Modulos
+    PaginaInicial --> ApiModulos["GET /api/modulos"]
+    PaginaModulo --> ApiModulo["GET /api/modulos/{id}"]
+    PaginaAula --> ApiConteudo["GET /api/conteudos/{id}"]
+    PaginasQuiz --> ApiConteudo
+
+    ApiModulos --> Modulos["data/modulos.json<br/>lista de módulos"]
+    ApiModulo --> Modulos
+    ApiConteudo --> ConteudoAula["data/conteudos/alfabeto.json<br/>aulas e quizzes"]
 
     PaginasQuiz --> BarraProgresso["BarraProgresso<br/>progresso da atividade"]
     PaginasQuiz --> QuizSelecao["QuizSelecao<br/>seleção de alternativa ou mídia"]
@@ -87,13 +92,14 @@ flowchart TD
 
     class Layout,PaginaInicial,PaginaModulo,PaginaAula,PaginasQuiz pagina
     class Cabecalho,CartaoModulo,BarraProgresso,QuizSelecao,QuizOrdem,QuizAssociacao componente
-    class Modulos,ConteudoAula,ConteudoQuiz dado
+    class Modulos,ConteudoAula dado
     class Aula,QuizInicial,QuizSeguinte,Resultado fluxo
 ```
 
-As setas contínuas representam chamadas ou renderizações entre arquivos. As
-rotas de navegação partem das opções exibidas nas páginas e levam o usuário
-para a aula, para o primeiro quiz e, em seguida, para os próximos desafios.
+As páginas solicitam dados aos Route Handlers via `fetch`. Os handlers leem os
+JSON locais e devolvem respostas HTTP; identificadores sem módulo ou conteúdo
+correspondente retornam `404`. As rotas de navegação levam à aula e aos quizzes
+em sequência.
 
 ## Organização sugerida do projeto
 
@@ -152,27 +158,26 @@ duo-libras/
 | `js/quiz-selecione-correto2.js` | Interação da seleção de vídeos | Lógica específica de seleção de mídia |
 | `js/quiz-arraste-na-ordem.js` | Eventos de arrastar e soltar palavras | Estado React e lógica de ordenação das opções |
 | `js/quiz-arraste-aqui.js` | Eventos de associação por arrastar e soltar | Estado React e lógica de associação entre textos e vídeos |
-| `conteudo.json` | Dados do módulo Alfabeto e respostas dos quizzes | `data/conteudos/alfabeto.json` ou arquivo JSON disponibilizado pela API estática |
+| `conteudo.json` | Dados do módulo Alfabeto e respostas dos quizzes | `data/conteudos/alfabeto.json`, servido pela API JSON do Next.js |
 | `style.css` | Estilos principais das páginas | `app/globals.css` e, se necessário, CSS Modules por componente |
 | `img/logo.png` | Logotipo do Duo Libras | `public/img/logo.png` |
 | Referências de mídia em HTML e JSON | GIFs e vídeos demonstrativos | Centralizar os caminhos em dados JSON e organizar os arquivos em `public/media/` ou em hospedagem externa |
 
-## Contrato da API
+## API JSON
 
-O backend deve oferecer endpoints consistentes, mesmo que os dados de origem
-estejam em arquivos estáticos.
+Os endpoints são implementados com Route Handlers em `app/api/` e consumidos
+por `hooks/useApiData.js`, que trata carregamento, erros HTTP e cancelamento de
+requisições durante a navegação.
 
-| Método e endpoint proposto | Fonte JSON | Resultado esperado |
+| Método e endpoint | Fonte JSON | Resultado |
 |---|---|---|
-| `GET /api/modulos` | `modulos.json` | Lista de módulos |
-| `GET /api/modulos/:id` | Dados do módulo | Detalhes de um módulo |
-| `GET /api/modulos/:id/aulas` | Conteúdo do módulo | Lista de aulas |
-| `GET /api/quizzes/:id` | Dados do quiz | Questões e configurações da atividade |
+| `GET /api/modulos` | `data/modulos.json` | Lista de módulos |
+| `GET /api/modulos/:id` | `data/modulos.json` | Dados do módulo ou `404` |
+| `GET /api/conteudos/:id` | `data/conteudos/:id.json` | Aula e quizzes do módulo ou `404` |
 
-O backend deverá converter os identificadores recebidos nas requisições para os
-arquivos ou recursos correspondentes, validar os dados e devolver respostas JSON.
-Um identificador inexistente deverá resultar em uma resposta de não encontrado,
-em vez de um erro inesperado.
+No momento, existe conteúdo apenas para `alfabeto`. Adicione outros arquivos de
+conteúdo e registre-os no Route Handler para habilitar aulas e quizzes desses
+módulos.
 
 ## Saiba mais
 

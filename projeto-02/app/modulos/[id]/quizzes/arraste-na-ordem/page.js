@@ -1,17 +1,10 @@
-import BarraProgresso from "@/components/BarraProgresso";
-import Cabecalho from "@/components/Cabecalho";
-import QuizOrdem from "@/components/QuizOrdem";
-import conteudo from "@/data/conteudos/alfabeto.json";
+import PaginaQuizOrdemCliente from "@/components/PaginaQuizOrdemCliente";
 
-export default function PaginaQuizOrdem() {
-  const quiz = conteudo.quizzes["arraste-na-ordem"];
-  return (
-    <>
-      <Cabecalho exibirVidas />
-      <main>
-        <BarraProgresso valor={50} />
-        <QuizOrdem imagem={conteudo.imagem} opcoes={quiz.opcoes} />
-      </main>
-    </>
-  );
+export async function generateStaticParams() {
+  return [{ id: "alfabeto" }];
+}
+
+export default async function PaginaQuizOrdem({ params }) {
+  const { id } = await params;
+  return <PaginaQuizOrdemCliente id={id} />;
 }

@@ -4,13 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function QuizOrdem({ imagem, opcoes }) {
+export default function QuizOrdem({ imagem, opcoes, proxima }) {
   const [selecionadas, definirSelecionadas] = useState([]);
-  const proxima = selecionadas.length + 1;
+  const ordemEsperada = selecionadas.length + 1;
   const concluido = selecionadas.length === opcoes.length;
 
   function escolher(opcao) {
-    if (opcao.ordem !== proxima) return;
+    if (opcao.ordem !== ordemEsperada) return;
     definirSelecionadas([...selecionadas, opcao.ordem]);
   }
 
@@ -29,7 +29,7 @@ export default function QuizOrdem({ imagem, opcoes }) {
         </figure>
         <Link
           className={`seta ${concluido ? "liberada" : "bloqueada"}`}
-          href="/modulos/alfabeto/quizzes/selecione-correto2"
+          href={proxima}
         >
           <span className="material-symbols-outlined">arrow_forward_ios</span>
         </Link>
