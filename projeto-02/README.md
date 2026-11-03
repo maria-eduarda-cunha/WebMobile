@@ -46,7 +46,6 @@ uma API externa configurada neste projeto.
 O diagrama abaixo mostra quais páginas carregam os dados, quais componentes
 elas renderizam e como o usuário navega entre os módulos, aulas e quizzes.
 
-<<<<<<< HEAD
 ```mermaid
 flowchart TD
     Layout["app/layout.js<br/>estrutura global"] --> PaginaInicial["app/page.js<br/>página inicial"]
@@ -96,9 +95,6 @@ flowchart TD
     class Modulos,ConteudoAula dado
     class Aula,QuizInicial,QuizSeguinte,Resultado fluxo
 ```
-=======
-<img width="3505" height="2094" alt="mermaid-diagram-2026-11-03-195348" src="https://github.com/user-attachments/assets/d599ea8b-5e16-4b9a-963a-30901cbb302e" />
->>>>>>> refs/remotes/origin/main
 
 As páginas solicitam dados aos Route Handlers via `fetch`. Os handlers leem os
 JSON locais e devolvem respostas HTTP; identificadores sem módulo ou conteúdo
@@ -167,7 +163,48 @@ duo-libras/
 | `img/logo.png` | Logotipo do Duo Libras | `public/img/logo.png` |
 | Referências de mídia em HTML e JSON | GIFs e vídeos demonstrativos | Centralizar os caminhos em dados JSON e organizar os arquivos em `public/media/` ou em hospedagem externa |
 
-## API JSON
+## Check-in 3
+
+### Processamento no cliente e no servidor
+
+**Cliente (navegador):** as telas fazem requisições HTTP com `fetch` e apresentam
+o resultado. O hook `useApiData.js` gerencia carregamento, erros e cancelamento
+de requisições. Os quizzes mantêm no cliente o estado temporário das respostas e
+interações em componentes como `QuizSelecao.js`, `QuizOrdem.js` e
+`QuizAssociacao.js`.
+
+**Servidor Next.js:** as páginas recebem os parâmetros das rotas e montam a
+estrutura da interface. Os Route Handlers atendem às requisições da API, leem os
+JSON locais e devolvem respostas JSON. Por exemplo,
+`app/api/conteudos/[id]/route.js` retorna o conteúdo do módulo ou `404` se ele
+não existir.
+
+### Rotas da aplicação e ligações
+
+#### Páginas
+
+| Rota | Página e ligação |
+|---|---|
+| `/` | `app/page.js` exibe os módulos. Cada `CartaoModulo` leva a `/modulos/{id}`. |
+| `/modulos/{id}` | `app/modulos/[id]/page.js` apresenta as opções de aula e quiz. |
+| `/modulos/{id}/aulas/{aulaId}` | `app/modulos/[id]/aulas/[aulaId]/page.js` exibe a aula e permite voltar ao módulo. |
+| `/modulos/{id}/quizzes/selecione-correto1` | Inicia a sequência de quizzes. |
+| `/modulos/{id}/quizzes/arraste-na-ordem` | Segue o primeiro quiz. |
+| `/modulos/{id}/quizzes/selecione-correto2` | Segue o quiz de ordenação. |
+| `/modulos/{id}/quizzes/arraste-aqui` | Etapa final; o link retorna ao início. |
+
+O cabeçalho também oferece navegação para `/`.
+
+#### API
+
+- `GET /api/modulos` — retorna a lista de módulos.
+- `GET /api/modulos/{id}` — retorna um módulo ou `404`.
+- `GET /api/conteudos/{id}` — retorna aula e quizzes do módulo ou `404`.
+
+As telas inicial e de módulo consultam os dois primeiros endpoints. As telas da
+aula e dos quizzes consultam o endpoint de conteúdo.
+
+### Consumo de JSON via API
 
 Os endpoints são implementados com Route Handlers em `app/api/` e consumidos
 por `hooks/useApiData.js`, que trata carregamento, erros HTTP e cancelamento de
