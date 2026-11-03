@@ -216,10 +216,6 @@ requisições durante a navegação.
 | `GET /api/modulos/:id` | `data/modulos.json` | Dados do módulo ou `404` |
 | `GET /api/conteudos/:id` | `data/conteudos/:id.json` | Aula e quizzes do módulo ou `404` |
 
-No momento, existe conteúdo apenas para `alfabeto`. Adicione outros arquivos de
-conteúdo e registre-os no Route Handler para habilitar aulas e quizzes desses
-módulos.
-
 ## Saiba mais
 
 - [Documentação do Next.js](https://nextjs.org/docs)
