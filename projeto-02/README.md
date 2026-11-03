@@ -46,6 +46,7 @@ uma API externa configurada neste projeto.
 O diagrama abaixo mostra quais páginas carregam os dados, quais componentes
 elas renderizam e como o usuário navega entre os módulos, aulas e quizzes.
 
+<<<<<<< HEAD
 ```mermaid
 flowchart TD
     Layout["app/layout.js<br/>estrutura global"] --> PaginaInicial["app/page.js<br/>página inicial"]
@@ -95,6 +96,9 @@ flowchart TD
     class Modulos,ConteudoAula dado
     class Aula,QuizInicial,QuizSeguinte,Resultado fluxo
 ```
+=======
+<img width="3505" height="2094" alt="mermaid-diagram-2026-11-03-195348" src="https://github.com/user-attachments/assets/d599ea8b-5e16-4b9a-963a-30901cbb302e" />
+>>>>>>> refs/remotes/origin/main
 
 As páginas solicitam dados aos Route Handlers via `fetch`. Os handlers leem os
 JSON locais e devolvem respostas HTTP; identificadores sem módulo ou conteúdo
