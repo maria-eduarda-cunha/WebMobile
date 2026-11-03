@@ -45,51 +45,7 @@ ao Next.js.
 O diagrama abaixo mostra quais páginas carregam os dados, quais componentes
 elas renderizam e como o usuário navega entre os módulos, aulas e quizzes.
 
-```mermaid
-flowchart TD
-    Layout["app/layout.js<br/>estrutura global"] --> PaginaInicial["app/page.js<br/>página inicial"]
-    Layout --> PaginaModulo["app/modulos/[id]/page.js<br/>página do módulo"]
-    Layout --> PaginaAula["app/modulos/[id]/aulas/[aulaId]/page.js<br/>página da aula"]
-    Layout --> PaginasQuiz["páginas de quiz<br/>/quizzes/*"]
-
-    PaginaInicial --> Cabecalho["Cabecalho<br/>navegação e identidade visual"]
-    PaginaModulo --> Cabecalho
-    PaginaAula --> Cabecalho
-    PaginasQuiz --> Cabecalho
-
-    PaginaInicial --> CartaoModulo["CartaoModulo<br/>cartão de cada módulo"]
-    CartaoModulo --> PaginaModulo
-
-    PaginaModulo --> Aula["opção Aula"]
-    PaginaModulo --> QuizInicial["opção Quiz"]
-    Aula --> PaginaAula
-    QuizInicial --> PaginasQuiz
-
-    PaginaAula --> ConteudoAula["data/conteudos/alfabeto.json<br/>imagem e conteúdo da aula"]
-    PaginasQuiz --> ConteudoQuiz["data/conteudos/alfabeto.json<br/>questões e respostas"]
-    PaginaInicial --> Modulos["data/modulos.json<br/>lista de módulos"]
-    PaginaModulo --> Modulos
-
-    PaginasQuiz --> BarraProgresso["BarraProgresso<br/>progresso da atividade"]
-    PaginasQuiz --> QuizSelecao["QuizSelecao<br/>seleção de alternativa ou mídia"]
-    PaginasQuiz --> QuizOrdem["QuizOrdem<br/>ordenação por arrastar"]
-    PaginasQuiz --> QuizAssociacao["QuizAssociacao<br/>associação de texto e mídia"]
-
-    QuizSelecao --> QuizSeguinte["próximo quiz"]
-    QuizOrdem --> QuizSeguinte
-    QuizAssociacao --> Resultado["resultado da atividade"]
-    PaginasQuiz --> Resultado
-
-    classDef pagina fill:#e8f1ff,stroke:#2563eb,color:#111827
-    classDef componente fill:#e9f9ee,stroke:#16a34a,color:#111827
-    classDef dado fill:#fff7e6,stroke:#d97706,color:#111827
-    classDef fluxo fill:#f5eaff,stroke:#9333ea,color:#111827
-
-    class Layout,PaginaInicial,PaginaModulo,PaginaAula,PaginasQuiz pagina
-    class Cabecalho,CartaoModulo,BarraProgresso,QuizSelecao,QuizOrdem,QuizAssociacao componente
-    class Modulos,ConteudoAula,ConteudoQuiz dado
-    class Aula,QuizInicial,QuizSeguinte,Resultado fluxo
-```
+<img width="3505" height="2094" alt="mermaid-diagram-2026-11-03-195348" src="https://github.com/user-attachments/assets/d599ea8b-5e16-4b9a-963a-30901cbb302e" />
 
 As setas contínuas representam chamadas ou renderizações entre arquivos. As
 rotas de navegação partem das opções exibidas nas páginas e levam o usuário
