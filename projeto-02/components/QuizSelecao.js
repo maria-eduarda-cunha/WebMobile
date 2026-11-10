@@ -49,14 +49,14 @@ export default function QuizSelecao({
           <button
             type="button"
             className={`opcao ${
-              selecionada === opcao
-                ? opcao === resposta
+              selecionada === opcao.rotulo
+                ? opcao.rotulo === resposta
                   ? "correta"
                   : "errada"
                 : ""
             }`}
-            key={opcao}
-            onClick={() => selecionar(opcao)}
+            key={opcao.rotulo}
+            onClick={() => selecionar(opcao.rotulo)}
             onKeyDown={(evento) => evento.key === "Enter" && selecionar(opcao)}
           >
             {tipo === "video" ? (
