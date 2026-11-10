@@ -23,8 +23,7 @@ export default function PaginaQuizInicialCliente({ id }) {
               titulo="Selecione o Correto"
               imagem={quiz.imagem}
               opcoes={quiz.opcoes.map((rotulo) => ({
-                rotulo,
-                imagem: quiz.imagem,
+                rotulo: rotulo
               }))}
               resposta={quiz.resposta}
               proxima={`/modulos/${id}/quizzes/arraste-na-ordem`}

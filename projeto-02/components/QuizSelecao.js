@@ -24,15 +24,7 @@ export default function QuizSelecao({
       <h2>{titulo}</h2>
       <section className={tipo === "video" ? "video-seta" : "questao"}>
         {tipo === "video" ? (
-          <figure className="video">
-            <Image
-              src={imagem}
-              alt="Demonstração de um sinal em Libras"
-              width={900}
-              height={550}
-              unoptimized
-            />
-          </figure>
+          <h3>Frase de exemplo para a questão</h3>
         ) : (
           <p>Texto contendo a pergunta</p>
         )}
@@ -61,16 +53,24 @@ export default function QuizSelecao({
           >
             {tipo === "video" ? (
               <figure className="video">
-                <Image
-                  src={opcao.imagem}
-                  alt={opcao.rotulo}
-                  width={300}
-                  height={160}
-                  unoptimized
-                />
-              </figure>
+              <Image
+                src={imagem}
+                alt="Demonstração de um sinal em Libras"
+                width={900}
+                height={550}
+                unoptimized
+              />
+            </figure>
             ) : (
-              <p>{opcao}</p>
+            <figure className="video">
+              <Image
+                src={imagem}
+                alt="Demonstração de um sinal em Libras"
+                width={900}
+                height={550}
+                unoptimized
+              />
+            </figure>
             )}
           </button>
         ))}

@@ -486,6 +486,43 @@ progress {
   }
 }
 
+.secao-quiz button.opcao {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 30px;
+    border: 0;
+    border-radius: 15px;
+    background-color: var(--cor-fundo-input);
+    color: var(--cor-texto);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .secao-quiz button.opcao:hover {
+    background-color: var(--cor-primaria-hover);
+    color: var(--cor-texto-claro);
+  }
+
+  .secao-quiz button.opcao.correta {
+    background-color: #4caf50;
+    color: var(--cor-texto-claro);
+  }
+
+  .secao-quiz button.opcao.errada {
+    background-color: #f44336;
+    color: var(--cor-texto-claro);
+  }
+
+  .secao-quiz button.opcao.oculta {
+    display: none;
+  }
+
+.pontilhado {
+  border-bottom: dotted;
+}
+
 /* Tela no Celular */
 
 @media (max-width: 768px) {

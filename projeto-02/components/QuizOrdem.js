@@ -16,7 +16,7 @@ export default function QuizOrdem({ imagem, opcoes, proxima }) {
 
   return (
     <section className="secao-quiz">
-      <h2>Arraste na Ordem</h2>
+      <h2>Selecione na Ordem</h2>
       <section className="video-seta">
         <figure className="video">
           <Image
@@ -35,8 +35,7 @@ export default function QuizOrdem({ imagem, opcoes, proxima }) {
         </Link>
       </section>
       <section className="area-drop">
-        <p>Arraste as opções para cá</p>
-        <p>
+        <p className="pontilhado">
           {selecionadas
             .map(
               (ordem) => opcoes.find((opcao) => opcao.ordem === ordem).rotulo,
